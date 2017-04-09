@@ -88,7 +88,7 @@ $section_5_links = get_field( "section_5_links", $page_id );
 		foreach ( $section_5_links as $post_ ) {
 			?>
 
-			<a href="<?php echo $post_->post_content; ?>" class="link-block"><?php echo $post_->post_title; ?></a>
+			<a href="<?php echo $post_->post_content; ?>" target="_blank" class="link-block"><?php echo $post_->post_title; ?></a>
 
 			<?php
 		}
