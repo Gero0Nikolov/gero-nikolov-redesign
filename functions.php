@@ -108,9 +108,12 @@ function geronikolov_scripts() {
 	wp_enqueue_style( 'geronikolov-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'geronikolov-animate', get_template_directory_uri() . "/animate.css" );
 	wp_enqueue_style( 'geronikolov-font-awesome', get_template_directory_uri() . "/css/font-awesome/css/font-awesome.min.css" );
+	wp_enqueue_style( 'geronikolov-owl-carousel', get_template_directory_uri() . "/js/owl-carousel/dist/assets/owl.carousel.min.css" );
+	wp_enqueue_style( 'geronikolov-owl-carousel-theme', get_template_directory_uri() . "/js/owl-carousel/dist/assets/owl.theme.default.min.css" );
 
 	wp_enqueue_script( 'geronikolov-initial', get_template_directory_uri() . '/js/initial.js', array( "jquery" ), "", true );
 	wp_enqueue_script( 'geronikolov-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'geronikolov-owl-carousel-script', get_template_directory_uri() . '/js/owl-carousel/dist/owl.carousel.js', array( "jquery" ), "", true );
 
 	wp_enqueue_script( 'geronikolov-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

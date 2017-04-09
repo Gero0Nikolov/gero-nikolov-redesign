@@ -903,6 +903,7 @@ object {
 	overflow: hidden;
 
 	background: #000;
+	z-index: 2;
 
 	.overlay {
 		display: flex;
@@ -925,6 +926,8 @@ object {
 		height: 6em;
 		font-size: 3rem;
 		background: #fff;
+		background-size: cover;
+		background-position: center;
 		border-radius: 100%;
 		margin: 1em auto;
 	}
@@ -946,9 +949,11 @@ object {
 	}
 
 	.bottom {
-		display: block;
+		display: inline-block;
 		position: absolute;
 		bottom: 1em;
+		left: 50%;
+		margin-left: -20px;
 	}
 
 	.play-button {
@@ -966,10 +971,6 @@ object {
 		-moz-transition: all 0.25s ease-in-out;
 		-o-transition: all 0.25s ease-in-out;
 		transition: all 0.25s ease-in-out;
-
-		&:hover {
-			transform: translateY(-50%) !important;
-		}
 
 		&:before {
 			content: " ";
@@ -1014,14 +1015,17 @@ object {
 	top: 100%;
 	width: 100%;
 	height: auto;
-	padding: 0 10%;
+	padding: 0 10% 10em;
+	z-index: 2;
+	background-color: #fff;
 
-	.section {
+	.section,
+	.full-section {
 		display: flex;
 		flex-direction: row;
 		align-items: flex-start;
 		justify-content: space-between;
-		margin: 2em 0 3em;
+		margin: 2em 0 1em;
 
 		.left-column {
 			display: inline-block;
@@ -1035,16 +1039,331 @@ object {
 			padding-left: 0.5em;
 		}
 
-		.section-header {
-			font-family: 'Vidaloka', serif;
+		.section-text {
+			h1, h2, h3, h4, h5 {
+				font-family: 'Vidaloka', serif;
+				font-weight: normal;
+				margin: 0 0 0.25em 0;
+				letter-spacing: 1px;
+				color: #333;
+			}
+
+			h1 { font-size: 4rem; }
+			h2 { font-size: 3rem; }
+			h3 { font-size: 2rem; }
+			h4 { font-size: 1.5rem; }
+			h5 { font-size: 1rem; }
+
+			p {
+				display: block;
+				font-size: 1rem;
+				font-weight: normal;
+				color: #555;
+				letter-spacing: 1px;
+				font-family: 'Open Sans', sans-serif;
+				text-align: justify;
+			}
+
+			a {
+				text-decoration: none;
+				color: #3498db;
+				font-size: 1.25rem;
+				font-family: "Vidaloka", serif;
+				outline: 0;
+
+				&:hover,
+				&:active,
+				&:focus { color: #2980b9; }
+			}
+		}
+
+		.section-banner {
+			display: block;
+			background: #eee;
+			background-size: cover;
+			background-position: center;
 			font-size: 4rem;
+			width: 100%;
+			height: 6em;
+		}
+	}
+
+	.full-section { flex-direction: column !important; }
+
+	.links-section {
+		display: block;
+		text-align: center;
+		background: #f4f4f4;
+		padding: 1em 0.5em;
+
+		.link-block {
+			display: inline-block;
+		    vertical-align: middle;
+		    color: #333;
+		    text-decoration: none;
+		    font-family: "Vidaloka", serif;
+		    font-size: 1.5rem;
+		    border: 1px solid #fff;
+		    padding: 0.75em;
+		    margin: 0.5em;
+
+			&:hover,
+			&:active,
+			&:focus { color: #333; border-color: #34495e; }
+		}
+	}
+
+	.link-list {
+		display: block;
+		text-align: left;
+
+		.link-block {
+			display: inline-block;
+			width: 7.59em;
+			text-align: center;
+			text-decoration: none;
+			height: 7.59em;
+			font-family: "Vidaloka", serif;
+			font-size: 2rem;
+			vertical-align: top;
+			background: #f4f4f4;
+			margin: 0.15em;
+			padding: 1.5em 0em;
+		    color: #3498db;
+
+			&:hover,
+			&:active,
+			&:focus {
+				background: #34495e;
+				color: #fff;
+				text-shadow: 1px 1px #000;
+			}
+		}
+	}
+}
+
+.site-footer {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 0 1em 1em;
+
+	background: #000;
+	z-index: 9;
+
+	.footer-row {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.brand-link {
+		font-family: "Vidaloka", serif;
+		font-size: 1.25rem;
+		font-weight: normal;
+		color: #fff;
+		text-decoration: none;
+		padding: 1em;
+
+		-webkit-transition: all 0.25s ease-in-out;
+		-moz-transition: all 0.25s ease-in-out;
+		-o-transition: all 0.25s ease-in-out;
+		transition: all 0.25s ease-in-out;
+
+		outline: 0;
+
+		&:hover,
+		&:active,
+		&:focus { color: #3498db; }
+	}
+
+	.bull {
+		color: #777;
+	    font-size: 1.25rem;
+	    display: inline-block;
+	    vertical-align: middle;
+	}
+
+	.search-form { // TODO: Change to flex when archives are ready!
+		display: none;
+	    align-items: center;
+	    justify-content: center;
+	    width: 100%;
+	    padding: 0 20%;
+
+		label {
+			display: block;
+			width: 100%;
+		}
+
+		.search-field {
+			display: block;
+			width: 100%;
+			border: 2px solid #fff;
+			border-radius: 0;
+			background: none;
+			color: #fff;
+			padding: 0.5em;
+			font-family: "Vidaloka", serif;
+			font-size: 1rem;
+			letter-spacing: 1px;
+			outline: 0;
+
+			&:focus { border-color: #3498db; }
+		}
+
+		.search-submit { display: none; }
+	}
+}
+
+.hidden-separator {
+	background: none;
+	height: 6em;
+	font-size: 1rem;
+}
+
+.page-wrapper {
+	display: block;
+	position: relative;
+	padding-bottom: 8em;
+	padding: 2em 5em 8em;
+
+	.back-arrow {
+		display: inline-block;
+		font-family: "Vidaloka";
+		font-size: 1.15rem;
+		font-weight: normal;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: #777;
+		position: relative;
+		border: 1px solid #777;
+		padding: 0.15em 0.5em;
+		outline: 0;
+
+		&:before {
+			content: " ";
+		    display: block;
+		    width: 5em;
+		    height: 1px;
+		    background: #333;
+		    position: absolute;
+		    left: 0;
+		    top: 50%;
+		    transform: translate(-100%, -50%);
+		}
+
+		&:hover {
+			color: #333;
+			border-color: #333;
+		}
+	}
+
+	.content {
+		display: block;
+		text-align: center;
+
+		.header {
+			font-family: "Vidaloka", serif;
+			font-size: 3rem;
+			font-weight: normal;
+			color: #333;
+			margin: 0.5em 0;
+		}
+
+		.form {
+			display: block;
+		    width: 500px;
+		    max-width: 95%;
+		    margin: 0 auto;
+
+			label {
+				display: block;
+				width: 100%;
+				text-align: left;
+				font-family: "Vidaloka";
+				font-size: 1rem;
+				font-weight: normal;
+				color: #777;
+				letter-spacing: 1px;
+
+				input,
+				textarea {
+					display: block;
+					width: 100%;
+					border: 1px solid #ddd;
+					border-radius: 0px;
+					outline: 0;
+					font-family: "OpenSans", sans-serif;
+					font-size: 1rem;
+					font-weight: normal;
+					color: #333;
+					letter-spacing: 1px;
+					padding: 0.25em;
+				}
+
+				textarea {
+					resize: vertical;
+					min-height: 250px;
+				}
+			}
+		}
+
+		.wpcf7-submit {
+			display: block;
+			width: 100%;
+			font-family: "Vidaloka", serif;
+			font-size: 1rem;
+			font-weight: normal;
+			border-radius: 0;
+			background: #eee;
+			letter-spacing: 1px;
+			outline: 0;
+			box-shadow: none;
+
+			&:hover,
+			&:active {
+				border-color: #3498db;
+			}
+		}
+	}
+
+	.post-container {
+		display: block;
+		margin-top: 2em;
+
+		.post-banner {
+			display: block;
+			width: 100%;
+			height: 6em;
+			font-size: 4.5rem;
+			background-size: cover;
+			background-position: center;
+			background-color: #f4f4f4;
+		}
+
+		.entry-meta { display: none; }
+
+		.entry-content { margin: 0; }
+
+		h1, h2, h3, h4, h5 {
+			font-family: 'Vidaloka', serif;
 			font-weight: normal;
 			margin: 0 0 0.25em 0;
 			letter-spacing: 1px;
 			color: #333;
 		}
 
-		.text {
+		h1 { font-size: 4rem; }
+		h2 { font-size: 3rem; }
+		h3 { font-size: 2rem; }
+		h4 { font-size: 1.5rem; }
+		h5 { font-size: 1rem; }
+
+		p {
 			display: block;
 			font-size: 1rem;
 			font-weight: normal;
@@ -1054,12 +1373,166 @@ object {
 			text-align: justify;
 		}
 
-		.section-banner {
+		a {
+			text-decoration: none;
+			color: #3498db;
+			font-size: 1.25rem;
+			font-family: "Vidaloka", serif;
+			outline: 0;
+
+			&:hover,
+			&:active,
+			&:focus { color: #2980b9; }
+		}
+
+		.cat-links,
+		.tags-links { // TODO: Show them when the archives are ready!
+			display: none;
+			font-family: "OpenSans", sans-serif;
+			font-size: 1rem;
+			letter-spacing: 1px;
+			color: #777;
+		}
+	}
+
+	.posts-list {
+		.page-header {
 			display: block;
-			background: #eee;
-			font-size: 4rem;
+			text-align: center;
+
+			.page-title {
+				font-family: "Vidaloka", serif;
+				font-size: 3rem;
+				font-weight: normal;
+				letter-spacing: 1px;
+				color: #333;
+				margin: 1em 0;
+			}
+		}
+	}
+}
+
+article {
+	margin: 0 !important;
+
+	.entry-title {
+		font-family: "Vidaloka", serif;
+	    font-size: 1.5rem;
+	    font-weight: normal;
+	    color: #333;
+	    margin: 0;
+
+		a {
+			text-decoration: none;
+			color: #777;
+			border-bottom: 1px solid;
+			display: block;
+			padding: 0.5em 0;
+
+			&:hover,
+			&:active,
+			&:focus { color: #34495e; }
+		}
+	}
+}
+
+.checkin-container {
+	display: block !important;
+    margin-top: 2em !important;
+	width: auto !important;
+
+	.post-header {
+		h1, h2 { color: #fff !important; }
+
+		h1 { font-size: 3rem !important; }
+		h2 { font-size: 2rem !important; }
+	}
+
+	.selected-venue {
+		h1 { font-size: 2rem !important; }
+	}
+}
+
+.archive {
+	.entry-content,
+	.entry-footer { display: none !important; }
+}
+
+.blog-posts-list {
+	.post-anchor {
+		display: block;
+	    text-decoration: none;
+
+		border-left: 1px solid #333;
+		padding-left: 2em;
+
+		&:hover,
+		&:active,
+		&:focus { border-color: #3498db; }
+
+		.post-title { font-size: 3rem !important; }
+
+		.post-text {
+			font-family: "OpenSans", sans-serif;
+		    font-size: 1rem;
+		    font-weight: normal;
+		    color: #333;
+		    letter-spacing: 1px;
+			line-height: 200%;
+		}
+	}
+}
+
+.owl-carousel {
+	.owl-item { width: 100%; }
+
+	.owl-dots .active { span { background: #333 !important; } }
+	.owl-dots {
+		.owl-dot:hover span { background: #777 !important; }
+	}
+
+	.row-holder {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: center;
+
+		.row-title {
+			font-family: "Vidaloka", serif;
+			font-size: 2rem;
+			font-weight: normal;
+			color: #333;
+			letter-spacing: 1px;
+			margin: 0.25em 0;
+		}
+
+		.row-text {
+			font-family: "OpenSans", sans-serif;
+			font-size: 1rem;
+			font-weight: normal;
+			color: #555;
+			letter-spacing: 1px;
+			text-align: justify;
+
+			a {
+				color: #3498db;
+				text-decoration: none;
+
+				&:hover,
+				&:active,
+				&:focus { color: #2980b9; }
+			}
+		}
+
+		.row-banner {
+			display: block;
 			width: 100%;
-			height: 6em;
+			max-width: 260px;
+			margin: 0 auto;
+			height: 260px;
+			font-size: 2.5rem;
+			background-size: cover;
+			background-position: center;
 		}
 	}
 }
@@ -1075,5 +1548,49 @@ object {
 			&:before,
 			&:after { font-size: 1.35rem; }
 		}
+	}
+
+	.homepage-content {
+		padding: 0 2% 10em;
+
+		.section,
+		.full-section {
+			flex-direction: column-reverse;
+
+			.left-column,
+			.right-column { width: 100%; padding: 0; }
+
+			h1 { font-size: 3rem; }
+			h2 { font-size: 2rem; }
+			h3 { font-size: 1.5rem; }
+			h4 { font-size: 1.25rem; }
+			h5 { font-size: 1rem; }
+		}
+
+		.links-section {
+			.link-block {
+				margin: 0.5em 0;
+    			width: 100%;
+				display: block;
+			}
+		}
+
+		.link-list .link-block {
+			font-size: 1.4rem;
+		}
+	}
+
+	.page-wrapper { padding: 2em 1em 8em; }
+
+	.site-footer {
+		padding: 0 0 1em;
+
+		.search-form { padding: 0 5%; }
+	}
+
+	.row-holder {
+		flex-direction: column-reverse;
+
+		.row-title { font-size: 2.5rem !important; }
 	}
 }

@@ -755,7 +755,8 @@ object {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #000; }
+  background: #000;
+  z-index: 2; }
   .intro-part .overlay {
     display: flex;
     flex-direction: column;
@@ -775,6 +776,8 @@ object {
     height: 6em;
     font-size: 3rem;
     background: #fff;
+    background-size: cover;
+    background-position: center;
     border-radius: 100%;
     margin: 1em auto; }
   .intro-part .quote {
@@ -789,9 +792,11 @@ object {
       content: "\201D";
       font-size: 3.5rem; }
   .intro-part .bottom {
-    display: block;
+    display: inline-block;
     position: absolute;
-    bottom: 1em; }
+    bottom: 1em;
+    left: 50%;
+    margin-left: -20px; }
   .intro-part .play-button {
     display: block;
     background: none;
@@ -806,8 +811,6 @@ object {
     -moz-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out; }
-    .intro-part .play-button:hover {
-      transform: translateY(-50%) !important; }
     .intro-part .play-button:before {
       content: " ";
       display: block;
@@ -841,29 +844,54 @@ object {
   top: 100%;
   width: 100%;
   height: auto;
-  padding: 0 10%; }
-  .homepage-content .section {
+  padding: 0 10% 10em;
+  z-index: 2;
+  background-color: #fff; }
+  .homepage-content .section,
+  .homepage-content .full-section {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    margin: 2em 0 3em; }
-    .homepage-content .section .left-column {
+    margin: 2em 0 1em; }
+    .homepage-content .section .left-column,
+    .homepage-content .full-section .left-column {
       display: inline-block;
       width: 60%;
       padding-right: 0.5em; }
-    .homepage-content .section .right-column {
+    .homepage-content .section .right-column,
+    .homepage-content .full-section .right-column {
       display: inline-block;
       width: 40%;
       padding-left: 0.5em; }
-    .homepage-content .section .section-header {
+    .homepage-content .section .section-text h1, .homepage-content .section .section-text h2, .homepage-content .section .section-text h3, .homepage-content .section .section-text h4, .homepage-content .section .section-text h5,
+    .homepage-content .full-section .section-text h1,
+    .homepage-content .full-section .section-text h2,
+    .homepage-content .full-section .section-text h3,
+    .homepage-content .full-section .section-text h4,
+    .homepage-content .full-section .section-text h5 {
       font-family: 'Vidaloka', serif;
-      font-size: 4rem;
       font-weight: normal;
       margin: 0 0 0.25em 0;
       letter-spacing: 1px;
       color: #333; }
-    .homepage-content .section .text {
+    .homepage-content .section .section-text h1,
+    .homepage-content .full-section .section-text h1 {
+      font-size: 4rem; }
+    .homepage-content .section .section-text h2,
+    .homepage-content .full-section .section-text h2 {
+      font-size: 3rem; }
+    .homepage-content .section .section-text h3,
+    .homepage-content .full-section .section-text h3 {
+      font-size: 2rem; }
+    .homepage-content .section .section-text h4,
+    .homepage-content .full-section .section-text h4 {
+      font-size: 1.5rem; }
+    .homepage-content .section .section-text h5,
+    .homepage-content .full-section .section-text h5 {
+      font-size: 1rem; }
+    .homepage-content .section .section-text p,
+    .homepage-content .full-section .section-text p {
       display: block;
       font-size: 1rem;
       font-weight: normal;
@@ -871,12 +899,369 @@ object {
       letter-spacing: 1px;
       font-family: 'Open Sans', sans-serif;
       text-align: justify; }
-    .homepage-content .section .section-banner {
+    .homepage-content .section .section-text a,
+    .homepage-content .full-section .section-text a {
+      text-decoration: none;
+      color: #3498db;
+      font-size: 1.25rem;
+      font-family: "Vidaloka", serif;
+      outline: 0; }
+      .homepage-content .section .section-text a:hover, .homepage-content .section .section-text a:active, .homepage-content .section .section-text a:focus,
+      .homepage-content .full-section .section-text a:hover,
+      .homepage-content .full-section .section-text a:active,
+      .homepage-content .full-section .section-text a:focus {
+        color: #2980b9; }
+    .homepage-content .section .section-banner,
+    .homepage-content .full-section .section-banner {
       display: block;
       background: #eee;
+      background-size: cover;
+      background-position: center;
       font-size: 4rem;
       width: 100%;
       height: 6em; }
+  .homepage-content .full-section {
+    flex-direction: column !important; }
+  .homepage-content .links-section {
+    display: block;
+    text-align: center;
+    background: #f4f4f4;
+    padding: 1em 0.5em; }
+    .homepage-content .links-section .link-block {
+      display: inline-block;
+      vertical-align: middle;
+      color: #333;
+      text-decoration: none;
+      font-family: "Vidaloka", serif;
+      font-size: 1.5rem;
+      border: 1px solid #fff;
+      padding: 0.75em;
+      margin: 0.5em; }
+      .homepage-content .links-section .link-block:hover, .homepage-content .links-section .link-block:active, .homepage-content .links-section .link-block:focus {
+        color: #333;
+        border-color: #34495e; }
+  .homepage-content .link-list {
+    display: block;
+    text-align: left; }
+    .homepage-content .link-list .link-block {
+      display: inline-block;
+      width: 7.59em;
+      text-align: center;
+      text-decoration: none;
+      height: 7.59em;
+      font-family: "Vidaloka", serif;
+      font-size: 2rem;
+      vertical-align: top;
+      background: #f4f4f4;
+      margin: 0.15em;
+      padding: 1.5em 0em;
+      color: #3498db; }
+      .homepage-content .link-list .link-block:hover, .homepage-content .link-list .link-block:active, .homepage-content .link-list .link-block:focus {
+        background: #34495e;
+        color: #fff;
+        text-shadow: 1px 1px #000; }
+
+.site-footer {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 1em 1em;
+  background: #000;
+  z-index: 9; }
+  .site-footer .footer-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; }
+  .site-footer .brand-link {
+    font-family: "Vidaloka", serif;
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: #fff;
+    text-decoration: none;
+    padding: 1em;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    outline: 0; }
+    .site-footer .brand-link:hover, .site-footer .brand-link:active, .site-footer .brand-link:focus {
+      color: #3498db; }
+  .site-footer .bull {
+    color: #777;
+    font-size: 1.25rem;
+    display: inline-block;
+    vertical-align: middle; }
+  .site-footer .search-form {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 20%; }
+    .site-footer .search-form label {
+      display: block;
+      width: 100%; }
+    .site-footer .search-form .search-field {
+      display: block;
+      width: 100%;
+      border: 2px solid #fff;
+      border-radius: 0;
+      background: none;
+      color: #fff;
+      padding: 0.5em;
+      font-family: "Vidaloka", serif;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      outline: 0; }
+      .site-footer .search-form .search-field:focus {
+        border-color: #3498db; }
+    .site-footer .search-form .search-submit {
+      display: none; }
+
+.hidden-separator {
+  background: none;
+  height: 6em;
+  font-size: 1rem; }
+
+.page-wrapper {
+  display: block;
+  position: relative;
+  padding-bottom: 8em;
+  padding: 2em 5em 8em; }
+  .page-wrapper .back-arrow {
+    display: inline-block;
+    font-family: "Vidaloka";
+    font-size: 1.15rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #777;
+    position: relative;
+    border: 1px solid #777;
+    padding: 0.15em 0.5em;
+    outline: 0; }
+    .page-wrapper .back-arrow:before {
+      content: " ";
+      display: block;
+      width: 5em;
+      height: 1px;
+      background: #333;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(-100%, -50%); }
+    .page-wrapper .back-arrow:hover {
+      color: #333;
+      border-color: #333; }
+  .page-wrapper .content {
+    display: block;
+    text-align: center; }
+    .page-wrapper .content .header {
+      font-family: "Vidaloka", serif;
+      font-size: 3rem;
+      font-weight: normal;
+      color: #333;
+      margin: 0.5em 0; }
+    .page-wrapper .content .form {
+      display: block;
+      width: 500px;
+      max-width: 95%;
+      margin: 0 auto; }
+      .page-wrapper .content .form label {
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-family: "Vidaloka";
+        font-size: 1rem;
+        font-weight: normal;
+        color: #777;
+        letter-spacing: 1px; }
+        .page-wrapper .content .form label input,
+        .page-wrapper .content .form label textarea {
+          display: block;
+          width: 100%;
+          border: 1px solid #ddd;
+          border-radius: 0px;
+          outline: 0;
+          font-family: "OpenSans", sans-serif;
+          font-size: 1rem;
+          font-weight: normal;
+          color: #333;
+          letter-spacing: 1px;
+          padding: 0.25em; }
+        .page-wrapper .content .form label textarea {
+          resize: vertical;
+          min-height: 250px; }
+    .page-wrapper .content .wpcf7-submit {
+      display: block;
+      width: 100%;
+      font-family: "Vidaloka", serif;
+      font-size: 1rem;
+      font-weight: normal;
+      border-radius: 0;
+      background: #eee;
+      letter-spacing: 1px;
+      outline: 0;
+      box-shadow: none; }
+      .page-wrapper .content .wpcf7-submit:hover, .page-wrapper .content .wpcf7-submit:active {
+        border-color: #3498db; }
+  .page-wrapper .post-container {
+    display: block;
+    margin-top: 2em; }
+    .page-wrapper .post-container .post-banner {
+      display: block;
+      width: 100%;
+      height: 6em;
+      font-size: 4.5rem;
+      background-size: cover;
+      background-position: center;
+      background-color: #f4f4f4; }
+    .page-wrapper .post-container .entry-meta {
+      display: none; }
+    .page-wrapper .post-container .entry-content {
+      margin: 0; }
+    .page-wrapper .post-container h1, .page-wrapper .post-container h2, .page-wrapper .post-container h3, .page-wrapper .post-container h4, .page-wrapper .post-container h5 {
+      font-family: 'Vidaloka', serif;
+      font-weight: normal;
+      margin: 0 0 0.25em 0;
+      letter-spacing: 1px;
+      color: #333; }
+    .page-wrapper .post-container h1 {
+      font-size: 4rem; }
+    .page-wrapper .post-container h2 {
+      font-size: 3rem; }
+    .page-wrapper .post-container h3 {
+      font-size: 2rem; }
+    .page-wrapper .post-container h4 {
+      font-size: 1.5rem; }
+    .page-wrapper .post-container h5 {
+      font-size: 1rem; }
+    .page-wrapper .post-container p {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #555;
+      letter-spacing: 1px;
+      font-family: 'Open Sans', sans-serif;
+      text-align: justify; }
+    .page-wrapper .post-container a {
+      text-decoration: none;
+      color: #3498db;
+      font-size: 1.25rem;
+      font-family: "Vidaloka", serif;
+      outline: 0; }
+      .page-wrapper .post-container a:hover, .page-wrapper .post-container a:active, .page-wrapper .post-container a:focus {
+        color: #2980b9; }
+    .page-wrapper .post-container .cat-links,
+    .page-wrapper .post-container .tags-links {
+      display: none;
+      font-family: "OpenSans", sans-serif;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      color: #777; }
+  .page-wrapper .posts-list .page-header {
+    display: block;
+    text-align: center; }
+    .page-wrapper .posts-list .page-header .page-title {
+      font-family: "Vidaloka", serif;
+      font-size: 3rem;
+      font-weight: normal;
+      letter-spacing: 1px;
+      color: #333;
+      margin: 1em 0; }
+
+article {
+  margin: 0 !important; }
+  article .entry-title {
+    font-family: "Vidaloka", serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #333;
+    margin: 0; }
+    article .entry-title a {
+      text-decoration: none;
+      color: #777;
+      border-bottom: 1px solid;
+      display: block;
+      padding: 0.5em 0; }
+      article .entry-title a:hover, article .entry-title a:active, article .entry-title a:focus {
+        color: #34495e; }
+
+.checkin-container {
+  display: block !important;
+  margin-top: 2em !important;
+  width: auto !important; }
+  .checkin-container .post-header h1, .checkin-container .post-header h2 {
+    color: #fff !important; }
+  .checkin-container .post-header h1 {
+    font-size: 3rem !important; }
+  .checkin-container .post-header h2 {
+    font-size: 2rem !important; }
+  .checkin-container .selected-venue h1 {
+    font-size: 2rem !important; }
+
+.archive .entry-content,
+.archive .entry-footer {
+  display: none !important; }
+
+.blog-posts-list .post-anchor {
+  display: block;
+  text-decoration: none;
+  border-left: 1px solid #333;
+  padding-left: 2em; }
+  .blog-posts-list .post-anchor:hover, .blog-posts-list .post-anchor:active, .blog-posts-list .post-anchor:focus {
+    border-color: #3498db; }
+  .blog-posts-list .post-anchor .post-title {
+    font-size: 3rem !important; }
+  .blog-posts-list .post-anchor .post-text {
+    font-family: "OpenSans", sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #333;
+    letter-spacing: 1px;
+    line-height: 200%; }
+
+.owl-carousel .owl-item {
+  width: 100%; }
+.owl-carousel .owl-dots .active span {
+  background: #333 !important; }
+.owl-carousel .owl-dots .owl-dot:hover span {
+  background: #777 !important; }
+.owl-carousel .row-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center; }
+  .owl-carousel .row-holder .row-title {
+    font-family: "Vidaloka", serif;
+    font-size: 2rem;
+    font-weight: normal;
+    color: #333;
+    letter-spacing: 1px;
+    margin: 0.25em 0; }
+  .owl-carousel .row-holder .row-text {
+    font-family: "OpenSans", sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #555;
+    letter-spacing: 1px;
+    text-align: justify; }
+    .owl-carousel .row-holder .row-text a {
+      color: #3498db;
+      text-decoration: none; }
+      .owl-carousel .row-holder .row-text a:hover, .owl-carousel .row-holder .row-text a:active, .owl-carousel .row-holder .row-text a:focus {
+        color: #2980b9; }
+  .owl-carousel .row-holder .row-banner {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+    height: 260px;
+    font-size: 2.5rem;
+    background-size: cover;
+    background-position: center; }
 
 /*** MOBILE ***/
 .mobile .intro-part .logo {
@@ -885,5 +1270,47 @@ object {
   font-size: 1.25rem; }
   .mobile .intro-part .quote:before, .mobile .intro-part .quote:after {
     font-size: 1.35rem; }
+.mobile .homepage-content {
+  padding: 0 2% 10em; }
+  .mobile .homepage-content .section,
+  .mobile .homepage-content .full-section {
+    flex-direction: column-reverse; }
+    .mobile .homepage-content .section .left-column,
+    .mobile .homepage-content .section .right-column,
+    .mobile .homepage-content .full-section .left-column,
+    .mobile .homepage-content .full-section .right-column {
+      width: 100%;
+      padding: 0; }
+    .mobile .homepage-content .section h1,
+    .mobile .homepage-content .full-section h1 {
+      font-size: 3rem; }
+    .mobile .homepage-content .section h2,
+    .mobile .homepage-content .full-section h2 {
+      font-size: 2rem; }
+    .mobile .homepage-content .section h3,
+    .mobile .homepage-content .full-section h3 {
+      font-size: 1.5rem; }
+    .mobile .homepage-content .section h4,
+    .mobile .homepage-content .full-section h4 {
+      font-size: 1.25rem; }
+    .mobile .homepage-content .section h5,
+    .mobile .homepage-content .full-section h5 {
+      font-size: 1rem; }
+  .mobile .homepage-content .links-section .link-block {
+    margin: 0.5em 0;
+    width: 100%;
+    display: block; }
+  .mobile .homepage-content .link-list .link-block {
+    font-size: 1.4rem; }
+.mobile .page-wrapper {
+  padding: 2em 1em 8em; }
+.mobile .site-footer {
+  padding: 0 0 1em; }
+  .mobile .site-footer .search-form {
+    padding: 0 5%; }
+.mobile .row-holder {
+  flex-direction: column-reverse; }
+  .mobile .row-holder .row-title {
+    font-size: 2.5rem !important; }
 
 /*# sourceMappingURL=style.css.map */
