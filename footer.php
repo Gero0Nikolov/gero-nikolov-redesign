@@ -19,6 +19,8 @@
 			<span class="bull">&bull;</span>
 			<a href="<?php echo get_permalink( 177 ); ?>" class="brand-link">Contact me</a>
 			<span class="bull">&bull;</span>
+			<a href="<?php echo get_site_url(); ?>/gstore" class="brand-link">G'store</a>
+			<span class="bull">&bull;</span>
 			<a href="<?php echo get_permalink( 16 ); ?>" class="brand-link">Blog</a>
 			<span class="bull">&bull;</span>
 			<a href="<?php echo get_post_type_archive_link( "checkin" ); ?>" class="brand-link">My places</a>
