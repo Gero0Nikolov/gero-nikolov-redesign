@@ -1279,6 +1279,13 @@ article {
     background-size: cover;
     background-position: center;
     background-color: #000; }
+  .store-banner .overlay {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); }
   .store-banner .featured-product-title {
     display: inline-block;
     margin: 0 auto;
@@ -1286,15 +1293,34 @@ article {
     font-size: 4rem;
     font-weight: normal;
     color: #fff;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5);
     line-height: 100%;
     padding: 0.5em;
     letter-spacing: 2px; }
+  .store-banner .buy-button {
+    display: inline-block;
+    font-family: "PlayFair Display", serif;
+    font-size: 1.25rem;
+    font-weight: normal;
+    position: absolute;
+    right: 1.75em;
+    padding: 0.75em 1em;
+    border: 1px solid #fff;
+    background: none;
+    border-radius: 0;
+    color: #fff;
+    letter-spacing: 1px;
+    top: 50%;
+    transform: translate(0, -35%);
+    box-shadow: none;
+    outline: 0;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out; }
+    .store-banner .buy-button:hover, .store-banner .buy-button:active, .store-banner .buy-button:focus {
+      background: #fff;
+      color: #333;
+      border: 1px solid #333; }
 
 .store-section {
   display: block;
@@ -1379,6 +1405,8 @@ article {
           padding: 0.5em 1em;
           color: #fff;
           letter-spacing: 1px;
+          box-shadow: none;
+          outline: 0;
           -webkit-transition: all 0.25s ease-in-out;
           -moz-transition: all 0.25s ease-in-out;
           -o-transition: all 0.25s ease-in-out;
@@ -1387,6 +1415,106 @@ article {
             background: #fff;
             color: #333;
             border: 1px solid #333; }
+
+#popup {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999; }
+  #popup #inner-popup {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 60%;
+    max-width: 800px;
+    height: 65%;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: auto; }
+    #popup #inner-popup #close-button {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      font-size: 1rem;
+      padding: 0;
+      background: none;
+      box-shadow: none !important;
+      border: none;
+      border-radius: 0;
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+      outline: 0;
+      transform: translateZ(0); }
+      #popup #inner-popup #close-button:hover .bar, #popup #inner-popup #close-button:active .bar, #popup #inner-popup #close-button:focus .bar {
+        background: #777; }
+      #popup #inner-popup #close-button .bar {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #000;
+        webkit-transition: all 0.25s ease-in-out;
+        -moz-transition: all 0.25s ease-in-out;
+        -o-transition: all 0.25s ease-in-out;
+        transition: all 0.25s ease-in-out; }
+        #popup #inner-popup #close-button .bar:first-of-type {
+          transform: rotate(45deg); }
+        #popup #inner-popup #close-button .bar:last-of-type {
+          transform: translate(0, -2px) rotate(-45deg); }
+    #popup #inner-popup .product-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2em 1em 1em; }
+      #popup #inner-popup .product-info .product-title {
+        display: inline-block;
+        font-family: "Open Sans", sans-serif;
+        font-size: 2rem;
+        font-weight: normal;
+        color: #333;
+        letter-spacing: 1px;
+        margin: 0; }
+      #popup #inner-popup .product-info .product-price {
+        display: inline-block;
+        font-family: "Open Sans",sans-serif;
+        font-weight: bold;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        color: #333;
+        margin: 0; }
+    #popup #inner-popup .product-content {
+      display: block;
+      font-family: "Open Sans", sans-serif;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #333;
+      line-height: 200%;
+      letter-spacing: 1px;
+      padding: 0 1em;
+      text-align: justify; }
+    #popup #inner-popup .product-reviews {
+      display: block;
+      width: 100%;
+      padding: 0 1em;
+      margin: 2em 0; }
+      #popup #inner-popup .product-reviews .image-anchor {
+        display: inline-block;
+        width: 160px;
+        margin: 0.5%;
+        height: 4em;
+        font-size: 3rem;
+        height: 160px;
+        outline: 0; }
+        #popup #inner-popup .product-reviews .image-anchor .image {
+          display: block;
+          width: 100%;
+          height: 100%; }
 
 /*** MOBILE ***/
 .mobile .intro-part .logo {
