@@ -905,6 +905,34 @@ object {
 	background: #000;
 	z-index: 2;
 
+	.floating-anchor {
+		display: inline-block;
+		position: fixed;
+		z-index: 4;
+		background: rgba(255, 255, 255, 0.75);
+		border-radius: 3px;
+		padding: 0.25em 0.75em;
+		font-family: "OpenSans", sans-serif;
+		font-size: 1rem;
+		font-weight: bold;
+		text-decoration: none;
+		color: #333;
+		top: 1em;
+		left: 1em;
+
+		-webkit-transition: all 0.25s ease-in-out;
+		-moz-transition: all 0.25s ease-in-out;
+		-o-transition: all 0.25s ease-in-out;
+		transition: all 0.25s ease-in-out;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: #3498db;
+			background: #fff;
+		}
+	}
+
 	.overlay {
 		display: flex;
 		flex-direction: column;
@@ -1256,7 +1284,43 @@ object {
 		    transform: translate(-100%, -50%);
 		}
 
-		&:hover {
+		&:hover,
+		&:active,
+		&:focus {
+			color: #333;
+			border-color: #333;
+		}
+	}
+
+	.front-arrow {
+		display: inline-block;
+	    font-family: "Vidaloka";
+	    font-size: 1.15rem;
+	    font-weight: normal;
+	    text-transform: uppercase;
+	    text-decoration: none;
+	    color: #777;
+	    position: absolute;
+	    border: 1px solid #777;
+	    padding: 0.15em 0.5em;
+	    outline: 0;
+	    right: 5em;
+
+		&:after {
+			content: " ";
+		    display: block;
+		    width: 5em;
+		    height: 1px;
+		    background: #333;
+		    position: absolute;
+		    right: 0;
+		    top: 50%;
+		    transform: translate(100%, -50%);
+		}
+
+		&:hover,
+		&:active,
+		&:focus {
 			color: #333;
 			border-color: #333;
 		}
@@ -1553,7 +1617,7 @@ article {
 		height: 100%;
 		background-size: cover;
 		background-position: center;
-		background-color: #000;
+		background-color: #333;
 	}
 
 	.overlay {
@@ -1566,7 +1630,11 @@ article {
 	}
 
 	.featured-product-title {
-		display: inline-block;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
 		margin: 0 auto;
 		font-family: "PlayFair Display", serif;
 		font-size: 4rem;
@@ -1613,7 +1681,7 @@ article {
 .store-section {
 	display: block;
 	position: relative;
-	padding: 0 10%;
+	padding: 2em 10% 0;
 
 	&:last-of-type { padding-bottom: 10em; }
 
@@ -1636,11 +1704,10 @@ article {
 
 		.product {
 			display: inline-block;
-			width: 250px;
-			height: 250px;
-			vertical-align: top;
-			max-width: 24.5%;
-			margin: 1%;
+			width: 10em;
+		    height: 10em;
+		    font-size: 1.5rem;
+		    margin: 0.25em;
 			background: #eee;
 			position: relative;
 			overflow: hidden;
@@ -1704,7 +1771,7 @@ article {
 					transform: translate(-50%, -100%);
 					font-family: "PlayFair Display", serif;
 					font-weight: normal;
-					font-size: 1.25rem;
+					font-size: 1rem;
 					background: none;
 					border-radius: 0;
 					border: 1px solid #fff;
@@ -1741,6 +1808,26 @@ article {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
 	z-index: 999;
+
+	#video-popup {
+		display: flex;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    width: 50%;
+	    height: 60%;
+	    transform: translate(-50%, -50%);
+	    overflow: hidden;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	    background: #000;
+
+		#player {
+			display: block;
+			width: 100%;
+		}
+	}
 
 	#inner-popup {
 		position: absolute;
@@ -1865,6 +1952,278 @@ article {
 	}
 }
 
+.twigo-header {
+	display: block;
+    position: relative;
+    text-align: center;
+
+	.main-header {
+		display: block;
+	    font-family: 'Vidaloka', serif;
+	    font-size: 4rem;
+	    font-weight: normal;
+	    margin: 3vw auto 0em;
+	    color: #000;
+	    line-height: 100%;
+
+		.green { color: #2ecc71; }
+		.yellow { color: #f1c40f; }
+		.orange { color: #e67e22; }
+		.red { color: #e74c3c; }
+		.purple { color: #9b59b6; }
+		.blue { color: #3498db; }
+	}
+
+	.sub-header {
+		display: block;
+	    font-family: 'Vidaloka', serif;
+	    font-size: 2.65rem;
+	    font-weight: normal;
+	    margin: 0em auto 0em;
+	    color: #777;
+	}
+
+	.feed {
+		display: block;
+		position: relative;
+		padding: 0.5em 0;
+		background: #000;
+		margin-top: 1.5em;
+	}
+}
+
+.twigo-content {
+	padding: 0 10% 10em;
+
+	.row {
+		display: block;
+		position: relative;
+		margin: 3em auto 0;
+
+		.flex-container {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: center;
+
+			.content {
+				display: inline-block;
+				width: 68%;
+
+				.title {
+					display: block;
+					font-family: 'Vidaloka', serif;
+					font-size: 3rem;
+					font-weight: normal;
+					margin: 0em auto 0.25em;
+					color: #000;
+					line-height: 100%;
+				}
+
+				.text {
+					display: block;
+					font-family: "Open Sans", sans-serif;
+					font-size: 1rem;
+					font-weight: normal;
+					color: #000;
+					letter-spacing: 1px;
+					line-height: 200%;
+				}
+			}
+
+			.image-container {
+				display: inline-block;
+				width: 32%;
+				height: 25vw;
+				position: relative;
+
+				.image {
+					display: block;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					background-color: #eee;
+					background-size: cover;
+					background-position: center
+				}
+			}
+
+			.video-anchor {
+				display: inline-block;
+				text-decoration: none;
+				outline: 0;
+				width: 32%;
+				height: 25vw;
+				position: relative;
+
+				webkit-transition: all 0.25s ease-in-out;
+				-moz-transition: all 0.25s ease-in-out;
+				-o-transition: all 0.25s ease-in-out;
+				transition: all 0.25s ease-in-out;
+
+				&:nth-of-type(2) { margin: 0 2%; }
+
+				&:hover,
+				&:active,
+				&:focus {
+					transform: translateY(-10px);
+				}
+
+				.video-player {
+					width: 100%;
+				    height: 100%;
+
+					&:hover,
+					&:active,
+					&:focus { transform: none; }
+				}
+			}
+
+			.video-player {
+				display: inline-flex;
+				width: 32%;
+				height: 25vw;
+			    background-color: #eee;
+				background-size: cover;
+				background-position: center;
+			    flex-direction: column;
+			    align-items: center;
+			    justify-content: center;
+				cursor: pointer;
+				position: relative;
+
+				webkit-transition: all 0.25s ease-in-out;
+				-moz-transition: all 0.25s ease-in-out;
+				-o-transition: all 0.25s ease-in-out;
+				transition: all 0.25s ease-in-out;
+
+				&:hover,
+				&:active,
+				&:focus {
+					transform: translateY(-10px);
+				}
+
+				.video-title {
+					display: inline-block;
+				    font-family: 'Vidaloka', serif;
+				    font-size: 2rem;
+				    font-weight: normal;
+				    margin: 0em auto 0.25em;
+				    color: #fff;
+					background-color: rgba(0, 0, 0, 0.5);
+				    line-height: 100%;
+				    text-align: center;
+					padding: 0.25em 0.5em;
+				}
+
+				.video-sub {
+					display: inline-block;
+				    font-family: 'Vidaloka', serif;
+				    font-size: 1.25rem;
+				    font-weight: normal;
+				    margin: 0em auto 0;
+					color: #fff;
+					background-color: rgba(0, 0, 0, 0.5);
+				    line-height: 100%;
+				    text-align: center;
+					padding: 0.25em 0.5em;
+				}
+			}
+		}
+
+		.full-textbox {
+			display: block;
+			position: relative;
+
+			.title {
+				display: block;
+				font-family: 'Vidaloka', serif;
+				font-size: 3rem;
+				font-weight: normal;
+				margin: 0em auto 0.25em;
+				color: #000;
+				line-height: 100%;
+				position: relative;
+				text-align: left;
+			}
+
+			.text {
+				display: block;
+				position: relative;
+				font-family: "Open Sans", sans-serif;
+				font-size: 1rem;
+				font-weight: normal;
+				color: #333;
+				letter-spacing: 1px;
+				line-height: 200%;
+				text-align: left;
+			}
+		}
+	}
+
+	.wpcf7 {
+		display: block;
+	    position: relative;
+
+		p { margin: 0 auto 1em; }
+
+		label {
+			font-family: "Vidaloka", serif;
+		    font-size: 1rem;
+		    font-weight: normal;
+		    color: #777;
+		}
+
+		input,
+		textarea {
+			border: 1px solid #ddd;
+			border-radius: 0;
+			padding: 0.25em 0.5em;
+			outline: 0;
+			color: #333;
+			width: 100%;
+			display: block;
+			position: relative;
+			font-family: "Open Sans", sans-serif;
+			font-size: 1.25rem;
+			font-weight: normal;
+
+			&:focus { border: 1px solid #3498db; }
+		}
+
+		textarea { resize: vertical; }
+
+		p:nth-of-type(1) {
+			display: inline-block;
+			width: 48%;
+			margin-right: 1.5%;
+		}
+
+		p:nth-of-type(2) {
+			display: inline-block;
+		    width: 48%;
+		    margin-left: 1.6%;
+		}
+
+		input[type="submit"] {
+			display: block;
+			padding: 0.75em;
+			border: none;
+			background: #eee;
+			font-family: "Vidaloka", serif;
+
+			&:hover,
+			&:active,
+			&:focus { background: #f1f1f1; }
+		}
+	}
+}
+
+.bold { font-weight: bold; }
+
+.pl-1em { padding-left: 1em; }
+.pr-1em { padding-right: 1em; }
+
 /*** MOBILE ***/
 .mobile {
 	.intro-part {
@@ -1914,11 +2273,84 @@ article {
 		padding: 0 0 1em;
 
 		.search-form { padding: 0 5%; }
+
+		.footer-row {
+			display: block;
+			text-align: center;
+
+			.bull { display: none; }
+
+			.brand-link {
+				display: inline-block;
+				padding: 0.5em;
+				width: 45%;
+			}
+		}
 	}
 
 	.row-holder {
 		flex-direction: column-reverse;
 
 		.row-title { font-size: 2.5rem !important; }
+	}
+
+	.front-arrow {
+		right: 1em;
+
+		&:after { width: 1em; }
+	}
+
+	.twigo-header {
+		.main-header { margin: 6vw auto 0em; }
+	}
+
+	.twigo-content {
+		padding: 0 1em 10em;
+
+		.flex-container {
+			flex-direction: column;
+
+			.content {
+				width: 100%;
+				text-align: justify;
+				padding-left: 0;
+				padding-right: 0;
+
+				.title { font-size: 2.5rem; }
+			}
+
+			.image-container {
+				width: 100%;
+			    height: 95vw;
+				margin-bottom: 1em;
+			}
+
+			.video-anchor {
+				width: 100%;
+				height: 95vw;
+				margin: 0 !important;
+
+				.video-player {
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.video-player {
+				width: 100%;
+				height: 95vw;
+				margin: 0 !important;
+			}
+		}
+
+		.wpcf7 {
+			p {
+				margin: 0 auto 1em !important;
+				width: 100% !important;
+			}
+		}
+	}
+
+	#video-popup.video-container {
+		width: 100% !important;
 	}
 }

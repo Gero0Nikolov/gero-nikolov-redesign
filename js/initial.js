@@ -64,6 +64,50 @@ jQuery( document ).ready(function(){
             } );
         } );
     }
+
+	if ( jQuery( "#twigo-content" ).length ) {
+		jQuery( "#video-3" ).on( "click", function(){
+			video_src = jQuery( this ).attr( "video-url" );
+			view_ = "\
+			<div id='popup' class='popup video-popup animated fadeIn'>\
+				<div id='video-popup' class='video-container'>\
+					<video id='player' controls autoplay>\
+						<source src='"+ video_src +"' type='video/mp4'></source>\
+					</video>\
+				</div>\
+			</div>\
+			";
+			jQuery( "body" ).append( view_ );
+			jQuery( "#popup" ).on( "click", function( e ){
+				if ( e.target == this ) {
+					jQuery( this ).removeClass( "fadeIn" ).addClass( "fadeOut" );
+					setTimeout( function(){ jQuery( "#popup" ).remove() }, 750 );
+				}
+			} );
+		} );
+
+		// jQuery( "#videos .video-player" ).each(function(){
+		// 	jQuery( this ).on( "click", function(){
+		// 		video_src = jQuery( this ).attr( "video-url" );
+		// 		view_ = "\
+		// 		<div id='popup' class='popup video-popup animated fadeIn'>\
+		// 			<div id='video-popup' class='video-container'>\
+		// 				<video id='player' controls autoplay>\
+		// 					<source src='"+ video_src +"' type='video/ogg'></source>\
+		// 				</video>\
+		// 			</div>\
+		// 		</div>\
+		// 		";
+		// 		jQuery( "body" ).append( view_ );
+		// 		jQuery( "#popup" ).on( "click", function( e ){
+		// 			if ( e.target == this ) {
+		// 				jQuery( this ).removeClass( "fadeIn" ).addClass( "fadeOut" );
+		// 				setTimeout( function(){ jQuery( "#popup" ).remove() }, 750 );
+		// 			}
+		// 		} );
+		// 	} );
+		// });
+	}
 });
 
 function slideTo( element ) {
