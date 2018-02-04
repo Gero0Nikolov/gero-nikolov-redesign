@@ -7,8 +7,7 @@ $page_id = get_the_ID();
 $logo_url = get_field( "logo", $page_id );
 $quote_ = get_field( "quote", $page_id );
 ?>
-<div id="homepage-intro" class="intro-part">
-	<a href="<?php echo get_site_url(); ?>/twigo" class="floating-anchor">#twigo</a>
+<div id="homepage-intro" class="intro-part">	
     <div class="overlay">
         <div class="top">
             <div id="logo" class="logo animated fadeInDown" style="background-image: url(<?php echo $logo_url; ?>);"></div>

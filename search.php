@@ -9,6 +9,9 @@
 
 get_header(); ?>
 
+<div class="page-wrapper">
+	<a href="<?php echo get_site_url(); ?>" class="back-arrow">Home</a>
+
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
@@ -32,8 +35,6 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
-
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
@@ -43,6 +44,6 @@ get_header(); ?>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 
+</div>
 <?php
-get_sidebar();
 get_footer();

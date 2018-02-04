@@ -1902,4 +1902,21 @@ article {
 .mobile #video-popup.video-container {
   width: 100% !important; }
 
+.search .page-title {
+  display: block;
+  font-size: 3rem;
+  font-family: "PlayFair Display", serif;
+  font-weight: normal;
+  color: #333;
+  letter-spacing: 2px;
+  line-height: 100%;
+  margin: 1em 0 0.5em; }
+.search .page-content {
+  font-family: "OpenSans", sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #333;
+  letter-spacing: 1px;
+  line-height: 200%; }
+
 /*# sourceMappingURL=style.css.map */

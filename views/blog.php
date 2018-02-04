@@ -6,7 +6,6 @@
 
 <div class="contact-me-page page-wrapper">
 	<a href="<?php echo get_site_url(); ?>" class="back-arrow">Home</a>
-	<a href="<?php echo get_site_url(); ?>/twigo" class="front-arrow">#Twigo</a>
 	<div class="blog-posts-list">
 		<?php
 		$args = array(
