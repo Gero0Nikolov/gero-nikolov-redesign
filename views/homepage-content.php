@@ -64,7 +64,7 @@ $section_5_links = get_field( "section_5_links", $page_id );
 					<div class="row-holder">
 						<div class="left-column">
 							<h1 class="row-title"><?php echo $post_->post_title; ?></h1>
-							<div class="row-text"><?php echo $post_->post_content; ?></div>
+							<div class="row-text"><?php echo wpautop( $post_->post_content, true ); ?></div>
 						</div>
 						<div class="right-column">
 							<div class='row-banner' style='background-image: url(<?php echo $post_featured_image !== false ? $post_featured_image : get_template_directory_uri() ."/inc/images/no-icon.png"; ?>);'></div>
