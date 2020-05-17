@@ -1901,6 +1901,15 @@ article {
     width: 100% !important; }
 .mobile #video-popup.video-container {
   width: 100% !important; }
+.mobile .chapters-holder {
+  flex-direction: column; }
+  .mobile .chapters-holder .story-anchor {
+    width: 100vw;
+    height: 100vw; }
+    .mobile .chapters-holder .story-anchor .chapter-label {
+      font-size: 10vw !important; }
+    .mobile .chapters-holder .story-anchor .title {
+      font-size: 12.5vw !important; }
 
 .search .page-title {
   display: block;
@@ -1918,5 +1927,130 @@ article {
   color: #333;
   letter-spacing: 1px;
   line-height: 200%; }
+
+.chapters-holder {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; }
+  .chapters-holder .story-anchor {
+    display: inline-block;
+    position: relative;
+    width: 49%;
+    height: 39vw;
+    text-decoration: none; }
+    .chapters-holder .story-anchor .chapter {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: #eee;
+      background-size: cover;
+      background-position: center; }
+      .chapters-holder .story-anchor .chapter .overlay {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        -webkit-transition: all 0.25s ease-in-out;
+        -moz-transition: all 0.25s ease-in-out;
+        -o-transition: all 0.25s ease-in-out;
+        transition: all 0.25s ease-in-out; }
+        .chapters-holder .story-anchor .chapter .overlay:hover, .chapters-holder .story-anchor .chapter .overlay:focus, .chapters-holder .story-anchor .chapter .overlay:active {
+          opacity: 1; }
+      .chapters-holder .story-anchor .chapter .chapter-label {
+        display: block;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 2vw;
+        font-weight: normal;
+        color: #fafafa;
+        line-height: 100%;
+        margin-bottom: 1vw;
+        border-bottom: 1px solid #fff; }
+      .chapters-holder .story-anchor .chapter .title {
+        display: block;
+        font-family: 'Vidaloka', serif;
+        font-size: 3vw;
+        font-weight: normal;
+        line-height: 100%;
+        margin: 0;
+        color: #fff; }
+
+.adventurer-button {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #03A9F4;
+  color: #fff !important;
+  padding: 0.85em 1em;
+  line-height: 100%;
+  margin-left: 0.5em;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out; }
+  .adventurer-button:hover, .adventurer-button:focus, .adventurer-button:active {
+    background: #3F51B5; }
+
+.adventurer-diary-page .page-title {
+  display: block;
+  position: relative;
+  text-align: center;
+  font-family: 'Vidaloka', serif;
+  font-weight: normal;
+  margin: 0 0 0.25em 0;
+  letter-spacing: 1px;
+  color: #333;
+  font-size: 4rem; }
+.adventurer-diary-page .page-content {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: normal;
+  color: #555;
+  letter-spacing: 1px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: justify;
+  background: #f5f5f5;
+  line-height: 200%; }
+  .adventurer-diary-page .page-content .text {
+    display: block;
+    position: relative;
+    padding: 2.5% 10%; }
+    .adventurer-diary-page .page-content .text p {
+      margin: 0;
+      border-bottom: 1px solid #e1e1e1;
+      padding-bottom: 0.5em;
+      margin-bottom: 0.5em; }
+      .adventurer-diary-page .page-content .text p:last-of-type {
+        border-bottom: none; }
+  .adventurer-diary-page .page-content .arrow {
+    border: 50px solid transparent;
+    border-left: calc(50vw - 5em) solid #fff;
+    border-bottom: 0 solid #f5f5f5;
+    border-right: calc(50vw - 5em) solid #fff; }
+
+.mobile .adventurer-button {
+  display: block;
+  margin: 0.5em 0 0;
+  text-align: center; }
+.mobile .adventurer-diary-page .page-title {
+  font-size: 3rem; }
+.mobile .adventurer-diary-page .page-content {
+  line-height: 175%; }
+  .mobile .adventurer-diary-page .page-content .text {
+    font-size: 1rem;
+    padding: 5% 7.5%; }
+  .mobile .adventurer-diary-page .page-content .arrow {
+    border-left: calc(50vw - 1em) solid #fff;
+    border-right: calc(50vw - 1em) solid #fff; }
 
 /*# sourceMappingURL=style.css.map */

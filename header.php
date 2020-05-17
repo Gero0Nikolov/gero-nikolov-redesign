@@ -19,8 +19,12 @@
 <link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Pavanam" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
 <?php wp_head(); ?>
+<script type="text/javascript">
+jQuery( document ).ready(function(){
+	setTimeout( function(){ jQuery( "#sbi_load .sbi_load_btn" ).trigger( "click" ); }, 1000 );
+});
+</script>
 </head>
 
 <body <?php body_class( wp_is_mobile() ? "mobile" : "desktop" ); ?>>

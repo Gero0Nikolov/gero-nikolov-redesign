@@ -26,19 +26,6 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php
-	$post_id = get_the_ID();
-	$featured_image = get_the_post_thumbnail_url( $post_id, "full" );
-
-	if ( $featured_image !== false ) {
-		?>
-
-		<div class="post-banner" style="background-image: url(<?php echo $featured_image; ?>);"></div>
-
-		<?php
-	}
-	?>
-
 	<div class="entry-content">
 		<?php
 			the_content( sprintf(

@@ -12,6 +12,8 @@ $section_4_text = get_field( "section_4_text", $page_id );
 $section_4_links = get_field( "section_4_links", $page_id );
 $section_5_text = get_field( "section_5_text", $page_id );
 $section_5_links = get_field( "section_5_links", $page_id );
+$adventurer_diary_text = get_field( "adventurer_diary_text", $page_id );
+$chapter_label = get_field( "chapter_label", $page_id );
 ?>
 <div id="homepage-content" class="homepage-content">
     <div class="section">
@@ -76,6 +78,42 @@ $section_5_links = get_field( "section_5_links", $page_id );
 			}
 			?>
 		</div>
+    </div>
+
+    <div class="full-section">
+        <div class="section-text"><?php echo str_replace( "%%site_url%%", get_site_url(), $adventurer_diary_text ); ?></div>
+        <div class="chapters-holder">
+            <?php
+            $args = array(
+                "posts_per_page" => 2,
+                "post_type" => "adventure_diary",
+                "orderby" => "ID",
+                "order" => "DESC",
+                "meta_key" => "page_language",
+                "meta_value" => "en",
+                "meta_compare" => "="
+            );
+            $stories = get_posts( $args );
+            if ( !empty( $stories ) ) {
+                foreach ( $stories as $story ) {
+                    $featured_image = get_the_post_thumbnail_url( $story->ID, "full" );
+                    $chapter_number = get_post_meta( $story->ID, "chapter_number", true );
+                    ?>
+
+                    <a href="<?php echo get_permalink( $story->ID ); ?>" class="story-anchor">
+                        <div id="chapter-<?php echo $story->ID; ?>" class="chapter" style="background-image: url(<?php echo $featured_image; ?>);">
+                            <div class="overlay">
+                                <span class="chapter-label"><?php echo $chapter_label ." ". $chapter_number; ?></span>
+                                <h1 class="title"><?php echo $story->post_title; ?></h1>
+                            </div>
+                        </div>
+                    </a>
+
+                    <?php
+                }
+            }
+            ?>
+        </div>
     </div>
 
 	<div class="full-section">

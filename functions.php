@@ -151,3 +151,10 @@ require get_template_directory() . '/inc/jetpack.php';
 function get_view( $view_name ) {
 	return get_template_directory() . "/views/". $view_name;
 }
+
+function add_allowed_origin( $origins ) {
+        $origins[] = "https://demo.trader.bg";
+		$origins[] = "https://live.trader.bg";
+        return $origins;
+}
+add_filter( "allowed_http_origins", "add_allowed_origin" );
